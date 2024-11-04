@@ -1,0 +1,14 @@
+# Request
+float32 env_size_x
+float32 env_size_y
+int32 num_obstacles
+float32 obstacle_max_size
+float32 obstacle_min_size
+float32 wall_spawn_chance
+
+---
+# Response
+bool success
+string message
+float32 goal_x
+float32 goal_y

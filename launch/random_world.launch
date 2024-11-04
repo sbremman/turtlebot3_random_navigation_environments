@@ -1,0 +1,38 @@
+<launch>
+  <param name="chance_for_circle" type="double" value="0.33" />
+  <param name="chance_for_sdf" type="double" value="0.33" />
+  <param name="obstacle_clearance" type="double" value="0.240" />
+  <param name="goal_min_distance" type="double" value="1.0" />
+  
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+  <arg name="yaw" default="1.5708" doc="yaw angle in radians, default is 90 degrees"/>
+  <arg name="gui" default="true" />
+
+  <arg name="world_file" default="random_world"/>
+  
+  <!-- Add an argument for the Python executable, defaulting to system Python -->
+  <arg name="python_exec" default="/usr/bin/python3" doc="Path to Python executable, can be virtual environment Python"/>
+
+  <!-- Set the GAZEBO_MODEL_PATH environment variable -->
+  <env name="GAZEBO_MODEL_PATH" value="$(optenv GAZEBO_MODEL_PATH):$(find turtlebot3_random_navigation_environments)/sdf_obstacles"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- Node for spawning the TurtleBot3 model -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw) -param robot_description" />
+  
+  <!-- Node for spawning obstacles in the world -->
+  <node pkg="turtlebot3_random_navigation_environments" type="random_world_spawn_oneshot.py" name="random_world" output="screen" launch-prefix="$(arg python_exec)"/>
+</launch>

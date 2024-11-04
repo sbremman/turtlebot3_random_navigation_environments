@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_random_navigation_environments</name>
+  <version>0.1.0</version>
+  <description>ROS package for creating random navigation environments for TurtleBot3 in Gazebo.</description>
+
+  <!-- Maintainer of the package -->
+  <maintainer email="sindre1407@gmail.com">Sindre Benjamin Remman</maintainer>
+
+  <!-- License for the project; MIT is chosen for maximum permissiveness -->
+  <license>MIT</license>
+
+  <!-- Project Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <build_depend>turtlebot3_description</build_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+
+
+  <!-- Optional URLs for more information -->
+    <url type="website">https://github.com/sbremman/turtlebot3_random_navigation_environments</url>
+    <url type="repository">https://github.com/sbremman/turtlebot3_random_navigation_environments</url>
+
+
+  <!-- Export section for additional configuration -->
+  <export>
+    <keywords>turtlebot3, gazebo, navigation, reinforcement learning, random environments</keywords>
+  </export>
+</package>
