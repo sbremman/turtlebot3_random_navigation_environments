@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TurtleBot3 Random Navigation Environments
 
 ![ROS Version](https://img.shields.io/badge/ROS-Noetic-blue)
@@ -132,4 +131,3 @@ Contributions are welcome! Please follow these steps to contribute:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 =======
 # random_navigation_environments
->>>>>>> first commit
