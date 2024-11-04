@@ -66,7 +66,7 @@ To avoid conflicts, consider setting up a virtual environment:
 ### Launch the Environment
 To start Gazebo with a random environment:
 ```bash
-roslaunch turtlebot3_random_navigation_environments random_navigation.launch
+roslaunch turtlebot3_random_navigation_environments random_world.launch
 ```
 
 ### Running Navigation Algorithms
