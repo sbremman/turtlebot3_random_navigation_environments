@@ -75,10 +75,6 @@ You can send service requests to randomize the environment using the `/world_ran
 rosservice call /world_randomizer "{env_size_x: 10.0, env_size_y: 10.0, num_obstacles: 20, obstacle_max_size: 1.5, obstacle_min_size: 0.1, wall_spawn_chance: 0.7}"
 ```
 This will create a random environment with the specified size, number of obstacles, and wall spawn probability.
-To start Gazebo with a random environment:
-```bash
-roslaunch turtlebot3_random_navigation_environments random_navigation.launch
-```
 
 ## Customization
 
