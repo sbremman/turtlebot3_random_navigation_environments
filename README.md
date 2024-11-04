@@ -69,14 +69,15 @@ To start Gazebo with a random environment:
 roslaunch turtlebot3_random_navigation_environments random_world.launch
 ```
 
-### Running Navigation Algorithms
-Once the environment is launched, you can start testing your custom navigation algorithms by running your nodes or using existing navigation stacks for TurtleBot3.
-
-### Example Usage with ROS Nodes
-```python
-# This is an example of how you might interact with the random environments
-# Replace with your own node for navigation or RL training
-rosrun your_navigation_package navigate_in_random_env
+### Sending Service Requests
+You can send service requests to randomize the environment using the `/world_randomizer` topic. For example:
+```bash
+rosservice call /world_randomizer "{env_size_x: 10.0, env_size_y: 10.0, num_obstacles: 20, obstacle_max_size: 1.5, obstacle_min_size: 0.1, wall_spawn_chance: 0.7}"
+```
+This will create a random environment with the specified size, number of obstacles, and wall spawn probability.
+To start Gazebo with a random environment:
+```bash
+roslaunch turtlebot3_random_navigation_environments random_navigation.launch
 ```
 
 ## Customization
@@ -129,5 +130,3 @@ Contributions are welcome! Please follow these steps to contribute:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-=======
-# random_navigation_environments
